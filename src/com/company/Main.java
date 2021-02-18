@@ -9,7 +9,7 @@ import java.util.stream.Stream;
 public class Main {
 
     public static void main(String[] args) {
-        pr1_1();
+        pr2_1();
     }
 
     public static void pr1_1(){
@@ -92,6 +92,8 @@ public class Main {
     public static void pr2_1(){
         ArrayList input = doHumans(5);
         Stream<Human> stream = input.stream();
-        stream.sorted(Comparator.comparing(Human::getFirstName)).forEach(System.out::println).filter(human->human.getBirthDate().compareTo(LocalDate.of(2000, Month.JUNE, 24))).forEach(System.out::println).sorted(Comparator.comparing(Human::getLasName)).forEach(System.out::println);
+        stream.sorted(Comparator.comparing(Human::getFirstName)).forEach(System.out::println);//.filter(human->human.getBirthDate().compareTo(LocalDate.of(2000, Month.JUNE, 24))).forEach(System.out::println).sorted(Comparator.comparing(Human::getLasName)).forEach(System.out::println);
+        stream = input.stream();
+        stream.filter(human -> human.getBirthDate().compareTo(LocalDate.of(2000, 1,24))<0).forEach(System.out::println);
     }
 }
